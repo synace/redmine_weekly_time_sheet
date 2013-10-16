@@ -1,3 +1,5 @@
 = Weekly Time Sheet Plugin
 
-This plugin for Redmine adds a new item to the main navigation. It provides a simple interface to view and log time spent on projects and issues. It is especially designed to fit the needs of Kupferwerk GmbH, but maybe someone else finds it usefull.
+Updated for Ruby 1.8.x and Redmine 2.3.x (Rails 3)
+
+This plugin for Redmine adds a new item to the main navigation. It provides a simple interface to view and log time spent on projects and issues. It is especially designed to fit the needs of Kupferwerk GmbH, but maybe someone else finds it useful.
