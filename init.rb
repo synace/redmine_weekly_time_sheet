@@ -2,9 +2,9 @@ require 'redmine'
 
 Redmine::Plugin.register :redmine_weekly_time_sheet do
   name 'Redmine Weekly Time Sheet'
-  author 'Andreas Gerauer'
+  author 'Synace, Andreas Gerauer'
   description 'This is a plugin for Redmine'
-  version '0.0.1'
+  version '0.1.0'
   
   menu(:top_menu,
        :weekly_time_sheet,
