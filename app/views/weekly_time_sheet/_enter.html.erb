@@ -4,19 +4,7 @@
   <div class="box">
     <p>
       <label for="entry_project"><%=l 'field_project' %></label>
-      <select id="entry_project" name="entry[project_id]" onchange="MyWeeklyTimeEntry.projectChanged()">
-        <option value="">--- <%=l 'actionview_instancetag_blank_option' %> ---</option>
-	<% 
-	projects = User.current.projects.all
-    	if projects.any?
-	  s = ''
-      	  s << project_tree_options_for_select(projects, :selected => @project) do |p|
-            { :value => p.id }
-      	  end
-        end
-	%>
-	<%= s %>
-      </select>
+      <%= select_tag 'entry[project_id]', project_tree_options_for_select(User.current.projects.all, :selected => @project), { :include_blank => true, :onchange => "MyWeeklyTimeEntry.projectChanged()", :id => 'entry_project' } %>
     </p>
     <p>
       <label for="entry_issue"><%=l 'field_issue' %></label>

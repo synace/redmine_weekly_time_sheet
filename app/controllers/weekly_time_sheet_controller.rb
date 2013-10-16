@@ -5,6 +5,7 @@ class WeeklyTimeSheetController < ApplicationController
   
   def index
     @entries = entries_for(User.current, display_date)
+    @entries_week = entries_for_week(User.current, display_first_day_of_week)
     @entry = TimeEntry.new(:spent_on => display_date)
   end
   
@@ -38,7 +39,7 @@ class WeeklyTimeSheetController < ApplicationController
     end
   end
   
-  def delete_item
+  def delete_time
     entry = TimeEntry.find(params[:id])
     if entry.editable_by?(User.current)
       entry.destroy
@@ -82,5 +83,13 @@ class WeeklyTimeSheetController < ApplicationController
     },
     :order => 'project_id, issue_id',
     :include => [:project, :issue])
+  end
+
+  def entries_for_week(user, date)
+    TimeEntry.find(:all, :conditions => {
+      :spent_on => [date, date+1, date+2, date+3, date+4, date+5, date+6],
+      :user_id => user.id
+    },
+    :order => 'project_id, issue_id')
   end
 end
